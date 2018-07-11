@@ -62,4 +62,8 @@ RUN apk --update add curl bash python py2-six util-linux gcompat git && \
         ${CIPHERSCAN_DIR}/.python-ecdsa \
         ${CIPHERSCAN_DIR}/.tlslite-ng 
 
+# set workding directory
 WORKDIR ${CIPHERSCAN_DIR}
+
+# Define default command to start OUD instance
+CMD ["cipherscan", "--help"]
