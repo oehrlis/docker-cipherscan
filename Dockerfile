@@ -41,7 +41,8 @@ ENV DOWNLOAD="/tmp/download" \
 # - run cscan.sh on google.com to implicit download tlslite and ecdsa
 # - remove git and apk cache
 # -----------------------------------------------------------------
-RUN apk --update add curl bash python py2-six util-linux gcompat git && \
+RUN apk --update add openssl curl bash python2 py-pip util-linux gcompat git && \
+    pip install six && \
     mkdir -p ${DOWNLOAD} ${INSTALL_DIR} && \
     curl -f https://codeload.github.com/mozilla/cipherscan/zip/master -o ${DOWNLOAD}/master.zip  && \
     unzip ${DOWNLOAD}/master.zip -d ${INSTALL_DIR} && \
